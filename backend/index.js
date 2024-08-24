@@ -29,8 +29,8 @@ const corsOption = {
 
 app.use(cors(corsOption)); 
 
-// Serve static files from the 'build' directory
-app.use(express.static(path.join(__dirname, 'build'), {
+// Serve static files from the 'frontend/build' directory
+app.use(express.static(path.join(__dirname, '..', 'frontend', 'build'), {
     setHeaders: (res, path) => {
         if (path.endsWith('.css')) {
             res.setHeader('Content-Type', 'text/css');
@@ -44,7 +44,7 @@ app.use("/api/v1/message", messageRoute);
 
 // Fallback to index.html for React Router
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+    res.sendFile(path.resolve(__dirname, '..', 'frontend', 'build', 'index.html'));
 });
 
 server.listen(PORT, () => {
