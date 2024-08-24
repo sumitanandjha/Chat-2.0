@@ -26,8 +26,12 @@ app.use(cookieParser());
 //     preflightContinue: false, // Determines if the middleware should move to the next middleware after handling OPTIONS requests
 //     maxAge: 86400 // Max age for the preflight response in seconds (24 hours)
 // };
+const corsOptions = {
+    origin: 'https://chat-2-0-1.onrender.com', // Replace with the actual origin
+    credentials: true, // Allows cookies and credentials
+};
 
-app.use(cors()); 
+app.use(cors(corsOptions)); 
 
 // Serve static files from the 'frontend/build' directory
 // app.use(express.static(path.join(__dirname, '..', 'frontend', 'build'), {
