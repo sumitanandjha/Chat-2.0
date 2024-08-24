@@ -30,13 +30,13 @@ const corsOption = {
 app.use(cors(corsOption)); 
 
 // Serve static files from the 'frontend/build' directory
-app.use(express.static(path.join(__dirname, '..', 'frontend', 'build'), {
-    setHeaders: (res, path) => {
-        if (path.endsWith('.css')) {
-            res.setHeader('Content-Type', 'text/css');
-        }
-    }
-}));
+// app.use(express.static(path.join(__dirname, '..', 'frontend', 'build'), {
+//     setHeaders: (res, path) => {
+//         if (path.endsWith('.css')) {
+//             res.setHeader('Content-Type', 'text/css');
+//         }
+//     }
+// }));
 
 // Routes
 app.use("/api/v1/user", userRoute); 
